@@ -1,16 +1,19 @@
 import * as React from "react";
 import { Box, Grid, Heading } from "grommet";
 import Movie from "./movie";
+import * as moviesApi from "../apis/movies-api";
 
 const Movies = () => {
   const [movies, setMovies] = React.useState([]);
 
+  async function setMoviesAsync() {
+    const fetchedMovies = await moviesApi.getMovies();
+    console.log(`Set ${fetchedMovies.length} movies`);
+    setMovies(fetchedMovies);
+  }
+
   React.useEffect(() => {
-    const mockMovies = Array(5)
-      .fill(0)
-      .map((_, i) => ({ name: `Movie ${i}` }));
-    console.log(`Set ${mockMovies.length} movies`);
-    setMovies(mockMovies);
+    setMoviesAsync();
   }, []);
 
   return (
