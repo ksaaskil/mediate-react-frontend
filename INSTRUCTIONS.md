@@ -7,13 +7,13 @@ This project was created with [create-react-app](https://facebook.github.io/crea
 Start the development server:
 
 ```
-npm start
+yarn start
 ```
 
 Run tests in watch mode:
 
 ```
-npm test
+yarn test
 ```
 
 ## Deployment in Heroku
